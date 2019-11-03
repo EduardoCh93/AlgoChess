@@ -14,11 +14,6 @@ public class Curandero extends Unidad {
         unidadAAtacar.recibirDanio(0);
     }
 
-    @Override
-    public void moverUnidad(){
-
-    }
-
     public void curarUnidad(Unidad unidadAAtacar) {
         unidadAAtacar.sanarDanio(this.sanar.devolverPuntosDeAtaque());
     }

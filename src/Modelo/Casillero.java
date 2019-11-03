@@ -19,4 +19,11 @@ public class Casillero {
     public boolean casilleroOcupado() {
         return estadoCasillero.estaOcupado();
     }
+
+    public Unidad obtenerUnidad() {
+        if((estadoCasillero.estaOcupado())){
+            return estadoCasillero.getUnidadQueOcupaCasillero();
+        }
+        return null;
+    }
 }

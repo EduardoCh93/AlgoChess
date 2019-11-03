@@ -34,4 +34,14 @@ public class Tablero {
             throw new CasilleroOcupadoException();
         }
     }
+
+    public void moverUnidad(int posicionHorizontalInicial, int posicionVerticalInicial, int posicionHorizontalFinal, int posicionVerticalFinal){
+        Unidad unidadAMover;
+        unidadAMover = this.obtenerUnidadDeCasilleroInicial(posicionHorizontalInicial,posicionVerticalInicial);
+        this.ingresarUnidad(unidadAMover,posicionHorizontalFinal,posicionVerticalFinal);
+    }
+
+    private Unidad obtenerUnidadDeCasilleroInicial(int posicionHorizontalInicial, int posicionVerticalInicial) {
+        return this.tableroDelJuego[posicionVerticalInicial][posicionHorizontalInicial].obtenerUnidad();
+    }
 }

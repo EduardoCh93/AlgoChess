@@ -14,8 +14,6 @@ public abstract class Unidad {
 
     public abstract void atacarUnidad(Unidad unidadAAtacar);
 
-    public abstract void moverUnidad();
-
     public int getCosteDeUnidad() {
         return costeDeUnidad;
     }

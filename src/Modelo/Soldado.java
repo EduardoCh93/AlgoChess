@@ -14,9 +14,4 @@ public class Soldado extends Unidad {
         unidadAAtacar.recibirDanio(ataqueDelSoldado.devolverPuntosDeAtaque());
     }
 
-    @Override
-    public void moverUnidad(){
-
-    }
-
 }

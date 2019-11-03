@@ -14,8 +14,4 @@ public class Catapulta extends Unidad {
         unidadAAtacar.recibirDanio(ataqueDeLaCatapulta.devolverPuntosDeAtaque());
     }
 
-    @Override
-    public void moverUnidad(){
-
-    }
 }

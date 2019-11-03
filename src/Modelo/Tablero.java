@@ -1,47 +1,49 @@
 package Modelo;
 
-import Excepciones.CasilleroOcupadoException;
+import Excepciones.ErrorDePosicionException;
 
 import java.util.ArrayList;
 
 public class Tablero {
 
-    private CampoDelJugador aliado;
-    private CampoDelJugador enemigo;
-    private int tamanioHorizontal;
-    private int tamanioVertical;
-    private Casillero[][] tableroDelJuego;
+    private ArrayList<Casillero> tableroDelJuego;
 
-    public Tablero (Jugador jugadorAliado, Jugador jugadorEnemigo){
-        this.tamanioHorizontal = 8;
-        this.tamanioVertical = 5;
-        //this.aliado = new CampoDelJugador(jugadorAliado,5,4);
-        //this.enemigo = new CampoDelJugador(jugadorEnemigo,5,4);
+    public Tablero(){
+        this.tableroDelJuego = new ArrayList<Casillero>();
+        this.inicializarTablero();
     }
 
-    public void inicializarTablero(){
-        for(int i = 0; i<this.tamanioVertical; i++){
-            for(int j = 0; j<this.tamanioHorizontal;j++){
-                this.tableroDelJuego[i][j] = new Casillero(i,j);
+    private void inicializarTablero() {
+        if(this.tableroDelJuego.isEmpty()) {
+            for (int i = 1; i <= 8; i++) {
+                for (int j = 1; j <= 5; j++) {
+                    this.tableroDelJuego.add(new Casillero(i, j));
+                }
             }
         }
     }
 
-    public void ingresarUnidad(Unidad unidadAIngresar, int posicionHorizontal, int posicionVertical){
-        if(!(this.tableroDelJuego[posicionVertical][posicionHorizontal].casilleroOcupado())) {
-            this.tableroDelJuego[posicionVertical][posicionHorizontal].ocuparCasilleroConUnidad(unidadAIngresar);
-        }else {
-            throw new CasilleroOcupadoException();
+    public void ingresarUnidad(Unidad nuevaUnidad,int posicionX,int posicionY){
+        Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
+        casilleroALlenar.ocuparCasilleroConUnidad(nuevaUnidad);
+    }
+
+    private Casillero obtenerCasillero(int posicionX, int posicionY) {
+        Casillero casilleroADevolver;
+        for(int i=0;i<this.tableroDelJuego.size();i++){
+            casilleroADevolver = this.tableroDelJuego.get(i);
+            if((casilleroADevolver.getPosicionX()==posicionX)&&(casilleroADevolver.getPosicionY()==posicionY)){
+                return casilleroADevolver;
+            }
         }
+        throw new ErrorDePosicionException();
     }
 
-    public void moverUnidad(int posicionHorizontalInicial, int posicionVerticalInicial, int posicionHorizontalFinal, int posicionVerticalFinal){
-        Unidad unidadAMover;
-        unidadAMover = this.obtenerUnidadDeCasilleroInicial(posicionHorizontalInicial,posicionVerticalInicial);
-        this.ingresarUnidad(unidadAMover,posicionHorizontalFinal,posicionVerticalFinal);
+    public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){
+        return this.obtenerCasillero(posicionX,posicionY).obtenerUnidad();
     }
 
-    private Unidad obtenerUnidadDeCasilleroInicial(int posicionHorizontalInicial, int posicionVerticalInicial) {
-        return this.tableroDelJuego[posicionVerticalInicial][posicionHorizontalInicial].obtenerUnidad();
+    public int cantidadDeCasilleros() {
+        return this.tableroDelJuego.size();
     }
 }

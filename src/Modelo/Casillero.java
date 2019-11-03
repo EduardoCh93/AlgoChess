@@ -1,29 +1,42 @@
 package Modelo;
 
+import Excepciones.CasilleroOcupadoException;
+
 public class Casillero {
 
-    private int posicionHorizontal;
-    private int posicionVertical;
-    private EstadoDelCasillero estadoCasillero;
+    private int posicionX;
+    private int posicionY;
+    private boolean estaOcupado;
+    private Unidad unidadAGuardar;
 
     public Casillero(int horizontal, int vertical){
-        this.posicionHorizontal = horizontal;
-        this.posicionVertical = vertical;
-        this.estadoCasillero = new CasilleroLibre();
+        this.posicionX = horizontal;
+        this.posicionY = vertical;
+        this.estaOcupado = false;
+        this.unidadAGuardar = null;
     }
 
     public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
-        this.estadoCasillero = new CasilleroOcupado(unidadAOcuparCasillero);
+        if(!estaOcupado) {
+            this.unidadAGuardar = unidadAOcuparCasillero;
+            this.estaOcupado= true;
+        }else{
+            throw new CasilleroOcupadoException();
+        }
     }
 
     public boolean casilleroOcupado() {
-        return estadoCasillero.estaOcupado();
+        return estaOcupado;
     }
 
     public Unidad obtenerUnidad() {
-        if((estadoCasillero.estaOcupado())){
-            return estadoCasillero.getUnidadQueOcupaCasillero();
-        }
-        return null;
+        return unidadAGuardar;
     }
+
+    public int getPosicionX(){
+        return this.posicionX;
+    }
+     public int getPosicionY(){
+        return this.posicionY;
+     }
 }

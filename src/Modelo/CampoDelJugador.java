@@ -6,9 +6,9 @@ public class CampoDelJugador {
     private int posicionMaximaHorizontal;
     private Jugador ladoPertenecienteA;
 
-    public CampoDelJugador(Jugador jugadorAAsginarLado, int minimoHorizontal, int maximoHorizontal){
-        this.posicionMaximaHorizontal = maximoHorizontal;
-        this.posicionMinimaHorizontal = minimoHorizontal;
+    public CampoDelJugador(Jugador jugadorAAsginarLado){
+        //this.posicionMaximaHorizontal = maximoHorizontal;
+        //this.posicionMinimaHorizontal = minimoHorizontal;
         this.ladoPertenecienteA = jugadorAAsginarLado;
     }
 

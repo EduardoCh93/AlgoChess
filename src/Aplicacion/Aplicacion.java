@@ -18,11 +18,13 @@ public class Aplicacion extends Application {
     @Override
     public void start(Stage stage){
         stage.setTitle("AlgoChess");
-        stage.getIcons().add(new Image("Imagenes\\icono.png"));
-        Button botonInformacion = new Button("I");
-        //botonInformacion.;
+        stage.getIcons().add(new Image("Imagenes/icono.png"));
+        Button botonCreditos = new Button("Creditos");
+        botonCreditos.getStylesheets().add("Css/darkTheme.css");
         Button inicioDePartida = new Button("Iniciar Juego");
+        inicioDePartida.getStylesheets().add("Css/darkTheme.css");
         Button salidaDelPrograma = new Button("Salir");
+        salidaDelPrograma.getStylesheets().add("Css/darkTheme.css");
         salidaDelPrograma.setAlignment(Pos.CENTER);
         salidaDelPrograma.setOnAction(new SalirDelProgramaEventHandler(stage));
         VBox box= new VBox();
@@ -31,7 +33,7 @@ public class Aplicacion extends Application {
         BorderPane.setMargin(box,new Insets(0,280,200,0));
         panel.setRight(box);
         box.setAlignment(Pos.CENTER);
-        box.getChildren().addAll(inicioDePartida,botonInformacion,salidaDelPrograma);
+        box.getChildren().addAll(inicioDePartida,botonCreditos,salidaDelPrograma);
         box.setSpacing(15);
         Scene escena=new Scene(panel,resolucionHorizontal,resolucionVertical);
         escena.getStylesheets().add("Css/pantallaPrincipal.css");

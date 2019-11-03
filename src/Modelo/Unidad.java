@@ -2,17 +2,17 @@ package Modelo;
 
 
 
-public abstract class Unidades {
+public abstract class Unidad {
     protected int puntosDeSalud;
     protected int costeDeUnidad;
     protected Jugador jugadorDuenio;
 
-    public Unidades(int salud, int coste){
+    public Unidad(int salud, int coste){
         this.puntosDeSalud=salud;
         this.costeDeUnidad=coste;
     }
 
-    public abstract void atacarUnidad(Unidades unidadAAtacar);
+    public abstract void atacarUnidad(Unidad unidadAAtacar);
 
     public abstract void moverUnidad();
 

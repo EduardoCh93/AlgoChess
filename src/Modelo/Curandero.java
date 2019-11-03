@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Curandero extends Unidades {
+public class Curandero extends Unidad {
 
     protected AtaqueDeSanacion sanar;
 
@@ -10,7 +10,7 @@ public class Curandero extends Unidades {
     }
 
     @Override
-    public void atacarUnidad(Unidades unidadAAtacar){
+    public void atacarUnidad(Unidad unidadAAtacar){
         unidadAAtacar.recibirDanio(0);
     }
 
@@ -19,7 +19,7 @@ public class Curandero extends Unidades {
 
     }
 
-    public void curarUnidad(Unidades unidadAAtacar) {
+    public void curarUnidad(Unidad unidadAAtacar) {
         unidadAAtacar.sanarDanio(this.sanar.devolverPuntosDeAtaque());
     }
 }

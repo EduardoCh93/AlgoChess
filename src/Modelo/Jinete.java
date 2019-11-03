@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Jinete extends Unidades{
+public class Jinete extends Unidad {
 
     AtaqueADistancia atacarConArco;
 
@@ -10,7 +10,7 @@ public class Jinete extends Unidades{
     }
 
     @Override
-    public void atacarUnidad(Unidades unidadAAtacer){
+    public void atacarUnidad(Unidad unidadAAtacer){
         unidadAAtacer.recibirDanio(this.atacarConArco.devolverPuntosDeAtaque());
     }
 

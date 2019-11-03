@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Soldado extends Unidades {
+public class Soldado extends Unidad {
 
     private AtaqueCuerpoACuerpo ataqueDelSoldado;
 
@@ -10,7 +10,7 @@ public class Soldado extends Unidades {
     }
 
     @Override
-    public void atacarUnidad(Unidades unidadAAtacar){
+    public void atacarUnidad(Unidad unidadAAtacar){
         unidadAAtacar.recibirDanio(ataqueDelSoldado.devolverPuntosDeAtaque());
     }
 

@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Catapulta extends Unidades {
+public class Catapulta extends Unidad {
 
     AtaqueADistancia ataqueDeLaCatapulta;
 
@@ -10,7 +10,7 @@ public class Catapulta extends Unidades {
     }
 
     @Override
-    public void atacarUnidad(Unidades unidadAAtacar){
+    public void atacarUnidad(Unidad unidadAAtacar){
         unidadAAtacar.recibirDanio(ataqueDeLaCatapulta.devolverPuntosDeAtaque());
     }
 

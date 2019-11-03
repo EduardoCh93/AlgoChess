@@ -7,9 +7,18 @@ import java.util.ArrayList;
 public class Tablero {
 
     private ArrayList<Casillero> tableroDelJuego;
+    private CampoDelJugador campoAliado;
+    private CampoDelJugador campoEnemigo;
 
     public Tablero(){
         this.tableroDelJuego = new ArrayList<Casillero>();
+        this.inicializarTablero();
+    }
+
+    public Tablero(Jugador jugadorAliado, Jugador jugadorEnemigo){
+        this.tableroDelJuego = new ArrayList<Casillero>();
+        this.campoAliado = new CampoDelJugador(jugadorAliado);
+        this.campoEnemigo = new CampoDelJugador(jugadorEnemigo);
         this.inicializarTablero();
     }
 
@@ -46,4 +55,6 @@ public class Tablero {
     public int cantidadDeCasilleros() {
         return this.tableroDelJuego.size();
     }
+
+    //private
 }

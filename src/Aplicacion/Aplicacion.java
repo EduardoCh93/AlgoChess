@@ -11,8 +11,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
-import java.awt.*;
 public class Aplicacion extends Application {
     private int resolucionHorizontal = 1366;
     private int resolucionVertical = 768;

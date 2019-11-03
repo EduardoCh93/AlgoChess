@@ -19,23 +19,26 @@ public class Aplicacion extends Application {
     public void start(Stage stage){
         stage.setTitle("AlgoChess");
         stage.getIcons().add(new Image("Imagenes/icono.png"));
+        //Creacion De Entorno
         Button botonCreditos = new Button("Creditos");
-        botonCreditos.getStylesheets().add("Css/darkTheme.css");
         Button inicioDePartida = new Button("Iniciar Juego");
-        inicioDePartida.getStylesheets().add("Css/darkTheme.css");
         Button salidaDelPrograma = new Button("Salir");
+        VBox box= new VBox();
+        BorderPane panel = new BorderPane();
+        Scene escena=new Scene(panel,resolucionHorizontal,resolucionVertical);
+
+        //Estilo Del entorno
+        botonCreditos.getStylesheets().add("Css/darkTheme.css");
+        inicioDePartida.getStylesheets().add("Css/darkTheme.css");
         salidaDelPrograma.getStylesheets().add("Css/darkTheme.css");
         salidaDelPrograma.setAlignment(Pos.CENTER);
         salidaDelPrograma.setOnAction(new SalirDelProgramaEventHandler(stage));
-        VBox box= new VBox();
-        BorderPane panel = new BorderPane();
         panel.setId("pane");
         BorderPane.setMargin(box,new Insets(0,280,200,0));
         panel.setRight(box);
         box.setAlignment(Pos.CENTER);
         box.getChildren().addAll(inicioDePartida,botonCreditos,salidaDelPrograma);
         box.setSpacing(15);
-        Scene escena=new Scene(panel,resolucionHorizontal,resolucionVertical);
         escena.getStylesheets().add("Css/pantallaPrincipal.css");
         stage.setMaximized(true);
         stage.setScene(escena);

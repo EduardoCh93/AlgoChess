@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
@@ -30,10 +31,12 @@ public class SalirDelProgramaEventHandler implements EventHandler<ActionEvent> {
                 BackgroundSize.DEFAULT);
         cuadroSalida.setAlignment(Pos.TOP_CENTER);
         Background fondoCuadro =new Background(backgroundimage);
-        cuadroSalida.setSpacing(25);
+        cuadroSalida.setSpacing(20);
         Button aceptar =new Button("Aceptar");
+        aceptar.getStylesheets().add("Css/darkTheme.css");
         aceptar.setOnAction(new BotonAceptarEventHandler());
         Button cancelar =new Button("Cancelar");
+        cancelar.getStylesheets().add("Css/darkTheme.css");
         cancelar.setOnAction(new BotonCancelarEventHandler(popup));
         cuadroSalida.getChildren().addAll(aceptar,cancelar);
         BorderPane border = new BorderPane();

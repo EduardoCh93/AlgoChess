@@ -1,6 +1,5 @@
 package Algoritmos3.Modelo;
 
-import Algoritmos3.Excepciones.CampoContrarioException;
 import Algoritmos3.Excepciones.ErrorDePosicionException;
 
 import java.util.ArrayList;

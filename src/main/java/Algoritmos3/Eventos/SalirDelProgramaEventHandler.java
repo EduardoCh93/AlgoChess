@@ -20,9 +20,9 @@ public class SalirDelProgramaEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         Popup popup  = new Popup();
         Label tituloDeCuadroDeSalida = new Label("¿Esta seguro que desea salir?");
-        tituloDeCuadroDeSalida.getStylesheets().add("Algoritmos3/Css/darkTheme.css");
+        tituloDeCuadroDeSalida.getStylesheets().add("Css/darkTheme.css");
         HBox cuadroSalida = new HBox();
-        Image fondo = new Image("Algoritmos3/Css/Imagenes/fondoDeSalida.png");
+        Image fondo = new Image("Imagenes/fondoDeSalida.png");
         BackgroundImage backgroundimage = new BackgroundImage(fondo,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
@@ -32,10 +32,10 @@ public class SalirDelProgramaEventHandler implements EventHandler<ActionEvent> {
         Background fondoCuadro =new Background(backgroundimage);
         cuadroSalida.setSpacing(20);
         Button aceptar =new Button("Aceptar");
-        aceptar.getStylesheets().add("Algoritmos3/Css/darkTheme.css");
+        aceptar.getStylesheets().add("Css/darkTheme.css");
         aceptar.setOnAction(new BotonAceptarEventHandler());
         Button cancelar =new Button("Cancelar");
-        cancelar.getStylesheets().add("Algoritmos3/Css/darkTheme.css");
+        cancelar.getStylesheets().add("Css/darkTheme.css");
         cancelar.setOnAction(new BotonCancelarEventHandler(popup));
         cuadroSalida.getChildren().addAll(aceptar,cancelar);
         BorderPane border = new BorderPane();

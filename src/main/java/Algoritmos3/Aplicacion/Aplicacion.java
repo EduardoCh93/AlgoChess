@@ -18,7 +18,7 @@ public class Aplicacion extends Application {
     @Override
     public void start(Stage stage){
         stage.setTitle("AlgoChess");
-        stage.getIcons().add(new Image("Algoritmos3/Imagenes/icono.png"));
+        stage.getIcons().add(new Image("Imagenes/iconos.png"));
         //Creacion De Entorno
         Button botonCreditos = new Button("Creditos");
         Button inicioDePartida = new Button("Iniciar Juego");
@@ -28,9 +28,9 @@ public class Aplicacion extends Application {
         Scene escena=new Scene(panel,resolucionHorizontal,resolucionVertical);
 
         //Estilo Del entorno
-        botonCreditos.getStylesheets().add("Algoritmos3/Css/darkTheme.css");
-        inicioDePartida.getStylesheets().add("Algoritmos3/Css/darkTheme.css");
-        salidaDelPrograma.getStylesheets().add("Algoritmos3/Css/darkTheme.css");
+        botonCreditos.getStylesheets().add("Css/darkTheme.css");
+        inicioDePartida.getStylesheets().add("Css/darkTheme.css");
+        salidaDelPrograma.getStylesheets().add("Css/darkTheme.css");
         salidaDelPrograma.setAlignment(Pos.CENTER);
         salidaDelPrograma.setOnAction(new SalirDelProgramaEventHandler(stage));
         panel.setId("pane");
@@ -39,7 +39,7 @@ public class Aplicacion extends Application {
         box.setAlignment(Pos.CENTER);
         box.getChildren().addAll(inicioDePartida,botonCreditos,salidaDelPrograma);
         box.setSpacing(15);
-        escena.getStylesheets().add("Algoritmos3/Css/pantallaPrincipal.css");
+        escena.getStylesheets().add("Css/pantallaPrincipal.css");
         stage.setMaximized(true);
         stage.setScene(escena);
         stage.show();

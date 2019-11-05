@@ -1,5 +1,3 @@
-package Algoritmos3;
-
 import Algoritmos3.Modelo.Catapulta;
 import Algoritmos3.Modelo.Soldado;
 import org.junit.jupiter.api.Test;

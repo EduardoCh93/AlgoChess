@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
-    private int resolucionHorizontal = 1366;
+    private int resolucionHorizontal = 1360;
     private int resolucionVertical = 768;
 
     @Override

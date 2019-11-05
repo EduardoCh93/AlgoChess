@@ -1,3 +1,5 @@
+package Algoritmos3;
+
 import Algoritmos3.Modelo.Jinete;
 import org.junit.jupiter.api.Test;
 

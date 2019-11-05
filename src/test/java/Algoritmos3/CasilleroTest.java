@@ -1,3 +1,5 @@
+package Algoritmos3;
+
 import Algoritmos3.Excepciones.CasilleroOcupadoException;
 import Algoritmos3.Modelo.Casillero;
 import Algoritmos3.Modelo.Soldado;

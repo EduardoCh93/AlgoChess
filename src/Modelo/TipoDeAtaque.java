@@ -1,7 +1,5 @@
 package Modelo;
 
-import org.jetbrains.annotations.Contract;
-
 public abstract class TipoDeAtaque {
 
     protected int puntosDeAtaque;

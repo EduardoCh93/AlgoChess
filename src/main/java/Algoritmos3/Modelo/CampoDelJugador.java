@@ -1,5 +1,8 @@
 package Algoritmos3.Modelo;
 
+import Algoritmos3.Excepciones.CampoContrarioException;
+import Algoritmos3.Excepciones.ErrorDePosicionException;
+
 import java.util.ArrayList;
 
 public class CampoDelJugador {
@@ -19,9 +22,27 @@ public class CampoDelJugador {
     public int tamanioDelCampo(){
         return this.campo.size();
     }
-    public void insertarUnidadEnPosicion(int posicionHorizontal, int posicionVertical, Unidad unidadAAgregar){
-        //this.campo[posicionHorizontal][posicionVertical] = unidadAAgregar;
+
+    public void insertarUnidadEnPosicion(Unidad unidadAAgregar,int posicionHorizontal, int posicionVertical,CampoDelJugador otroCampo){
+        Casillero casilleroALlenar = this.buscarCasilleroDelCampo(posicionHorizontal,posicionVertical);
+        if(!otroCampo.perteneceACampo(casilleroALlenar)) {
+            casilleroALlenar.ocuparCasilleroConUnidad(unidadAAgregar);
+        }
+
     }
 
+    private Casillero buscarCasilleroDelCampo(int posicionX, int posicionY){
+        Casillero casilleroADevolver;
+        for(int i=0;i<this.campo.size();i++){
+            casilleroADevolver = this.campo.get(i);
+            if((casilleroADevolver.getPosicionX()==posicionX)&&(casilleroADevolver.getPosicionY()==posicionY)){
+                return casilleroADevolver;
+            }
+        }
+        throw new ErrorDePosicionException();
+    }
 
+    public boolean perteneceACampo(Casillero casilleroALlenar) {
+        return  this.campo.contains(casilleroALlenar);
+    }
 }

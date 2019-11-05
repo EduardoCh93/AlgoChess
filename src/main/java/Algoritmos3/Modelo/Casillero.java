@@ -36,7 +36,7 @@ public class Casillero {
     public int getPosicionX(){
         return this.posicionX;
     }
-     public int getPosicionY(){
+    public int getPosicionY(){
         return this.posicionY;
      }
 }

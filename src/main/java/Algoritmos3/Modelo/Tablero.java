@@ -10,8 +10,7 @@ public abstract class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int tamanioHorizontal;
     protected int tamanioVertical;
-    //private CampoDelJugador campoAliado;
-    //private CampoDelJugador campoEnemigo;
+    //protected Turno jugadorEnTurno;
 
     public Tablero(){
         this.tableroDelJuego = new ArrayList<Casillero>();
@@ -30,24 +29,24 @@ public abstract class Tablero {
         }
     }
 
-    public void ingresarUnidad(Unidad nuevaUnidad,int posicionX,int posicionY){
-        Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
-        if(verificarValidezDelCasillero(casilleroALlenar)){
-            casilleroALlenar.ocuparCasilleroConUnidad(nuevaUnidad);
-        }
-    }
+    public abstract void ingresarUnidad(Unidad nuevaUnidad,int posicionX,int posicionY);
 
     public abstract boolean verificarValidezDelCasillero(Casillero casillero);
 
-    protected Casillero obtenerCasillero(int posicionX, int posicionY) {
+    protected boolean verificarPosicionValida(int posicionX, int posicionY){
+        return (posicionX<= this.tamanioHorizontal)&&(posicionY<= this.tamanioVertical);
+    }
+
+    protected  Casillero obtenerCasillero(int posicionX, int posicionY) {
         Casillero casilleroADevolver;
-        for(int i=0;i<this.tableroDelJuego.size();i++){
-            casilleroADevolver = this.tableroDelJuego.get(i);
-            if((casilleroADevolver.getPosicionX()==posicionX)&&(casilleroADevolver.getPosicionY()==posicionY)){
-                return casilleroADevolver;
+        if (verificarPosicionValida(posicionX, posicionY)) {
+            for (int i = 0; i < this.tableroDelJuego.size(); i++) {
+                casilleroADevolver = this.tableroDelJuego.get(i);
+                if ((casilleroADevolver.getPosicionX() == posicionX) && (casilleroADevolver.getPosicionY() == posicionY)) {
+                    return casilleroADevolver;
+                }
             }
-        }
-        throw new ErrorDePosicionException();
+        }throw new ErrorDePosicionException();
     }
 
     public Unidad obtenerUnidadDePosicion(int posicionX, int posicionY){

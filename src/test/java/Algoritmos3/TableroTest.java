@@ -14,7 +14,7 @@ class TableroTest {
     void comprobarCreacionDelTablero(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-        CampoAliado nuevoCampo = new CampoAliado(jugador1);
+        CampoAliado nuevoCampo = new CampoAliado(jugador1,jugador2);
         CampoEnemigo otroCampo = new CampoEnemigo(jugador2);
         assertEquals(nuevoCampo.cantidadDeCasillerosTotales(),40);
         assertEquals(otroCampo.cantidadDeCasillerosTotales(),40);
@@ -24,7 +24,7 @@ class TableroTest {
     void comprobarIngresoDeUnidadEnPosicionX1Y2(){
         Jugador jugador1 = new Jugador("Juan");
         Jugador jugador2 = new Jugador("Pedro");
-        CampoAliado nuevoTablero = new CampoAliado(jugador1);
+        CampoAliado nuevoTablero = new CampoAliado(jugador1,jugador2);
         Soldado nuevoSoldado = new Soldado();
         nuevoTablero.ingresarUnidad(nuevoSoldado,1,2);
         assertEquals(nuevoTablero.obtenerUnidadDePosicion(1,2),nuevoSoldado);
@@ -34,7 +34,7 @@ class TableroTest {
     void comprobarErrorDePosicion(){
         Jugador jugador1 = new Jugador("Juan");
         Jugador jugador2 = new Jugador("Pedro");
-        CampoAliado nuevoTablero = new CampoAliado(jugador1);
+        CampoAliado nuevoTablero = new CampoAliado(jugador1,jugador2);
         Soldado nuevoSoldado = new Soldado();
         assertThrows(ErrorDePosicionException.class,()->{
             nuevoTablero.ingresarUnidad(nuevoSoldado,9,2);
@@ -46,7 +46,7 @@ class TableroTest {
     void comprobarCasilleroLleno(){
         Jugador jugador1 = new Jugador("Juan");
         Jugador jugador2 = new Jugador("Pedro");
-        CampoAliado nuevoTablero = new CampoAliado(jugador1);
+        CampoAliado nuevoTablero = new CampoAliado(jugador1,jugador2);
         Soldado nuevoSoldado = new Soldado();
         nuevoTablero.ingresarUnidad(nuevoSoldado,1,2);
         Soldado otroSoldado = new Soldado();
@@ -59,8 +59,7 @@ class TableroTest {
     void comprobarCampoAliado(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-        CampoAliado nuevoCampo = new CampoAliado(jugador1);
-        CampoEnemigo otroCampo = new CampoEnemigo(jugador2);
+        CampoAliado nuevoCampo = new CampoAliado(jugador1,jugador2);
         assertEquals(nuevoCampo.cantidadDeCasilleros(),20);
     }
 
@@ -68,7 +67,6 @@ class TableroTest {
     void comprobarCampoEnemigo(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-        CampoAliado nuevoCampo = new CampoAliado(jugador1);
         CampoEnemigo otroCampo = new CampoEnemigo(jugador2);
         assertEquals(otroCampo.cantidadDeCasilleros(),20);
     }
@@ -77,9 +75,8 @@ class TableroTest {
     void comprobarIngresoACampoEnemigo(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-        CampoAliado nuevoCampo = new CampoAliado(jugador1);
+        CampoAliado nuevoCampo = new CampoAliado(jugador1, jugador2);
         Soldado nuevoSoldado = new Soldado();
-        CampoEnemigo otroCampo = new CampoEnemigo(jugador2);
         assertThrows(CampoContrarioException.class,()->{
             nuevoCampo.ingresarUnidad(nuevoSoldado,5,2);
         });

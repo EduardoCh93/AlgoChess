@@ -1,7 +1,6 @@
 package Algoritmos3.Modelo;
 
 import Algoritmos3.Excepciones.CampoContrarioException;
-
 import java.util.ArrayList;
 
 public class CampoEnemigo extends Tablero {
@@ -40,4 +39,13 @@ public class CampoEnemigo extends Tablero {
     public int cantidadDeCasilleros(){
         return this.campo.size();
     }
+
+    public void ingresarUnidad(Unidad nuevaUnidad,int posicionX,int posicionY){
+        Casillero casilleroALlenar = this.obtenerCasillero(posicionX,posicionY);
+        if(verificarValidezDelCasillero(casilleroALlenar)){
+            casilleroALlenar.ocuparCasilleroConUnidad(nuevaUnidad);
+            this.jugador.comprarUnidad(nuevaUnidad);
+        }
+    }
+
 }

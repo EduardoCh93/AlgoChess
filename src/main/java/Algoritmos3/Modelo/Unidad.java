@@ -6,6 +6,7 @@ public abstract class Unidad {
     protected int puntosDeSalud;
     protected int costeDeUnidad;
     protected Jugador jugadorDuenio;
+    protected String nombreDeUnidad;
 
     public Unidad(int salud, int coste){
         this.puntosDeSalud=salud;
@@ -29,4 +30,7 @@ public abstract class Unidad {
     protected void sanarDanio(int devolverPuntosDeAtaque) {
         this.puntosDeSalud += devolverPuntosDeAtaque;
     }
+
+    public abstract String getNombreDeUnidad();
+
 }

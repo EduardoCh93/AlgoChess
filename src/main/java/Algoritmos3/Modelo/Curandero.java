@@ -17,4 +17,9 @@ public class Curandero extends Unidad {
     public void curarUnidad(Unidad unidadAAtacar) {
         unidadAAtacar.sanarDanio(this.sanar.devolverPuntosDeAtaque());
     }
+
+    public String getNombreDeUnidad(){
+        return this.nombreDeUnidad;
+    }
+
 }

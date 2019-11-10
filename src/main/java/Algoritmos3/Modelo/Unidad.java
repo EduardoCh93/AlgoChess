@@ -31,6 +31,8 @@ public abstract class Unidad {
         this.puntosDeSalud += devolverPuntosDeAtaque;
     }
 
-    public abstract String getNombreDeUnidad();
+    public String getNombreDeUnidad(){
+        return this.nombreDeUnidad;
+    }
 
 }

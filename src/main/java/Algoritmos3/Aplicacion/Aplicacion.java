@@ -1,6 +1,7 @@
 package Algoritmos3.Aplicacion;
 
 import Algoritmos3.Eventos.SalirDelProgramaEventHandler;
+import Algoritmos3.Eventos.VentanaDeTablero;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -32,6 +33,7 @@ public class Aplicacion extends Application {
         inicioDePartida.getStylesheets().add("Css/darkTheme.css");
         salidaDelPrograma.getStylesheets().add("Css/darkTheme.css");
         salidaDelPrograma.setAlignment(Pos.CENTER);
+        inicioDePartida.setOnAction(new VentanaDeTablero(stage));
         salidaDelPrograma.setOnAction(new SalirDelProgramaEventHandler(stage));
         panel.setId("pane");
         BorderPane.setMargin(box,new Insets(0,280,200,0));

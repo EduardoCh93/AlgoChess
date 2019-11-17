@@ -1,9 +1,14 @@
 language: java
-
 jdk:
-  -openjdk11
+  - oraclejdk8
+  - openjdk8
+  - openjdk11
+# would just use default install/script but the ./mvnw script errors on travis
+# obviously this only works for maven builds right now...
+install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  -mvn test
+  - mvn test
 env :
   global :
     - CODECOV_TOKEN="2f29dda7-d255-439c-82ee-54cec4698c9d"

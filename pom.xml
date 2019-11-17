@@ -153,6 +153,13 @@
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.3</version>
+                <configuration>
+                    <compilerArgs>
+                        <arg>--add-exports</arg>
+                        <arg>javafx.graphics/com.sun.glass.ui=org.openjfx.hellofx</arg>
+                    </compilerArgs>
+                    <mainClass>org.openjfx.hellofx/org.openjfx.App</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

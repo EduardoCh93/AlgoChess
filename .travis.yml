@@ -3,7 +3,7 @@ language: java
 jdk:
   -openjdk8
 
-script: 
+script:
     -mvn test
 
 after_success:

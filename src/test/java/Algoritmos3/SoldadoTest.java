@@ -1,6 +1,6 @@
 package Algoritmos3;
 
-import Algoritmos3.Modelo.Soldado;
+import Algoritmos3.Modelo.Unidades.Soldado;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +23,7 @@ class SoldadoTest {
     void atacarAUnaUnidadYVerificarDanio(){
         Soldado nuevoSoldado = new Soldado();
         Soldado soldadoAAtacar = new Soldado();
-        nuevoSoldado.atacarUnidad(soldadoAAtacar);
+        //nuevoSoldado.atacarUnidad(soldadoAAtacar);
         assertEquals(soldadoAAtacar.getPuntosDeSalud(),90);
     }
 }

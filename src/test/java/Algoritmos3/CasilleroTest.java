@@ -1,8 +1,8 @@
 package Algoritmos3;
 
 import Algoritmos3.Excepciones.CasilleroOcupadoException;
-import Algoritmos3.Modelo.Casillero;
-import Algoritmos3.Modelo.Soldado;
+import Algoritmos3.Modelo.Tablero.Casillero;
+import Algoritmos3.Modelo.Unidades.Soldado;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,5 +1,8 @@
 package Algoritmos3.Modelo;
 
+import Algoritmos3.Excepciones.JugadorPerdioElJuegoExcepcion;
+import Algoritmos3.Excepciones.PuntosNoDisponiblesParaComprarException;
+import Algoritmos3.Modelo.Unidades.Unidad;
 import java.util.ArrayList;
 
 public class Jugador {
@@ -14,9 +17,22 @@ public class Jugador {
         this.unidadesDesplegadas = new ArrayList<Unidad>();
     }
 
-    public void comprarUnidad(Unidad unidadAcomprar){
-        this.unidadesDesplegadas.add(unidadAcomprar);
-        this.puntosDeUnidadAGastar-=unidadAcomprar.getCosteDeUnidad();
+    public void agregarUnidad(Unidad nuevaUnidad) {
+        if (puntosDeUnidadAGastar>nuevaUnidad.getCosteDeUnidad()){
+            this.unidadesDesplegadas.add(nuevaUnidad);
+            nuevaUnidad.setJugadorDuenio(this);
+            this.puntosDeUnidadAGastar -=nuevaUnidad.getCosteDeUnidad();
+        }else{
+            throw new PuntosNoDisponiblesParaComprarException();
+        }
     }
 
+    public void removerUnidad(Unidad unidad){
+        for (int i = 0 ; i < unidadesDesplegadas.size() ; i++){
+            if(unidad.equals(this.unidadesDesplegadas.get(i))){
+                this.unidadesDesplegadas.remove(i);
+            }
+        }
+        if (unidadesDesplegadas.size() == 0) throw  new JugadorPerdioElJuegoExcepcion();
+    }
 }

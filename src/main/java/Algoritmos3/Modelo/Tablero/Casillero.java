@@ -1,42 +1,58 @@
-package Algoritmos3.Modelo;
+package Algoritmos3.Modelo.Tablero;
 
 import Algoritmos3.Excepciones.CasilleroOcupadoException;
+import Algoritmos3.Modelo.Unidades.Unidad;
 
 public class Casillero {
 
     private int posicionX;
     private int posicionY;
-    private boolean estaOcupado;
+    private boolean estaLibre;
     private Unidad unidadAGuardar;
+    private boolean esEnemigo;
 
     public Casillero(int horizontal, int vertical){
         this.posicionX = horizontal;
         this.posicionY = vertical;
-        this.estaOcupado = false;
+        this.estaLibre = true;
         this.unidadAGuardar = null;
     }
 
     public void ocuparCasilleroConUnidad(Unidad unidadAOcuparCasillero){
-        if(!estaOcupado) {
+        if(estaLibre) {
             this.unidadAGuardar = unidadAOcuparCasillero;
-            this.estaOcupado= true;
+            this.estaLibre= false;
         }else{
             throw new CasilleroOcupadoException();
         }
     }
 
-    public boolean casilleroOcupado() {
-        return estaOcupado;
+    public void setEsEnemigo(boolean bandoEnemigo){
+        this.esEnemigo = bandoEnemigo;
+    }
+
+    public boolean casilleroLibre() {
+        return estaLibre;
     }
 
     public Unidad obtenerUnidad() {
         return unidadAGuardar;
     }
 
-    public int getPosicionX(){
+    public int getX(){
         return this.posicionX;
     }
-    public int getPosicionY(){
+
+    public int getY(){
         return this.posicionY;
      }
+
+    public void cambiarEstadoDelCasilleroALibre() {
+        this.estaLibre = true;
+        this.unidadAGuardar = null;
+    }
+
+    public boolean esCasilleroAliado() {
+        return this.esEnemigo;
+    }
 }

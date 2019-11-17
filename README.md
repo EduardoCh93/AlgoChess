@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.org/EduardoCh93/AlgoChess.svg?branch=master)](https://travis-ci.org/EduardoCh93/AlgoChess)
-[![codecov](https://codecov.io/gh/EduardoCh93/AlgoChess/branch/master/graph/badge.svg)](https://codecov.io/gh/EduardoCh93/AlgoChess)
-
 ## Instalación previa
 
 Las únicas herramientas necesarias para trabajar en el proyecto son el entorno de desarrollo de Java ([JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)), [Apache Ant](https://ant.apache.org/) para la construcción automatizada y Git para el control de versiones.
@@ -67,4 +64,4 @@ $ git push origin master
 
 Una vez hecho el push, Travis se encarga de ejecutar el script de Ant en el repositorio de integración contínua y se notificará a todos los colaboradores en caso de error.
 
-El historial de construcciones en Travis puede verse [aquí](https://travis-ci.org/EduardoCh93/AlgoChess/builds) y la medición de cobertura con CodeCov [aquí](https://codecov.io/gh/EduardoCh93/AlgoChess).
+El historial de construcciones en Travis puede verse  y la medición de cobertura con CodeCov .

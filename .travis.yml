@@ -1,13 +1,7 @@
 language: java
 jdk:
   - openjdk8
-  - openjdk11
-# would just use default install/script but the ./mvnw script errors on travis
-# obviously this only works for maven builds right now...
 script:
   - mvn test
-env :
-  global :
-    - CODECOV_TOKEN="2f29dda7-d255-439c-82ee-54cec4698c9d"
 after_success:
   - bash <(curl -s https://codecov.io/bash)

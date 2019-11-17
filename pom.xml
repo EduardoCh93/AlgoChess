@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <name>AlgoChess</name>
-    <url>https://github.com/EduardoCh93/AlgoChess.git</url>
+    <url>https://github.com/EduardoCh93/AlgoChess</url>
 
     <properties>
         <java.version>11</java.version>

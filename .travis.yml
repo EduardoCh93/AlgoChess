@@ -3,9 +3,9 @@ language: java
 jdk:
   -openjdk8
 
-sudo: false # faster builds
-
 script: "mvn cobertura:cobertura"
+    -mvn test
+    -mvn install
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -t 2f29dda7-d255-439c-82ee-54cec4698c9d

@@ -1,5 +1,5 @@
 package Algoritmos3.Aplicacion;
-/*
+
 import Algoritmos3.Eventos.SalirDelProgramaEventHandler;
 import Algoritmos3.Eventos.VentanaDeTablero;
 import javafx.application.Application;
@@ -52,4 +52,4 @@ public class Aplicacion extends Application {
         launch(args);
     }
 }
-*/
+

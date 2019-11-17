@@ -1,8 +1,0 @@
-language: java
-java:
-  - 1.8.0_231
-script:
-  - mvn test
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)

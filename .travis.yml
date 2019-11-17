@@ -3,4 +3,4 @@ language: java
 script:
   -  mvn test
 after_success:
-  - bash <(curl - s https://codecov.io/bash) -t 2f29dda7-d255-439c-82ee-54cec4698c9d
+  - bash <(curl - s https://codecov.io/bash) 

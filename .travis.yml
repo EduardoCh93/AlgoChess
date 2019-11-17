@@ -1,6 +1,6 @@
 language: java
-jdk:
-  - openjdk8
+java:
+  - 1.8.0_231
 os: windows
 script:
   -  mvn test

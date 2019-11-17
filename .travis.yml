@@ -4,7 +4,6 @@ jdk:
   -openjdk8
 install: true
 script:
-  -mvn install
   -mvn test
 env :
   global :

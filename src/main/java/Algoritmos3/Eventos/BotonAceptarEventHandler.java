@@ -1,5 +1,5 @@
 package Algoritmos3.Eventos;
-
+/*
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,3 +11,4 @@ public class BotonAceptarEventHandler implements  EventHandler<ActionEvent> {
         Platform.exit();
     }
 }
+*/

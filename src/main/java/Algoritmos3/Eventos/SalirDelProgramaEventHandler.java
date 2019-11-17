@@ -1,5 +1,5 @@
 package Algoritmos3.Eventos;
-
+/*
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -50,3 +50,4 @@ public class SalirDelProgramaEventHandler implements EventHandler<ActionEvent> {
         popup.show(escenaPrincipal,600,325);
     }
 }
+*/

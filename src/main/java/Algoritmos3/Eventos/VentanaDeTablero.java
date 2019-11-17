@@ -1,5 +1,5 @@
 package Algoritmos3.Eventos;
-
+/*
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -46,4 +46,4 @@ public class VentanaDeTablero implements EventHandler<ActionEvent> {
         escenaPrincipal.setFullScreen(true);
     }
 
-}
+}*/

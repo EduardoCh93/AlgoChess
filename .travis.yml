@@ -1,7 +1,6 @@
 language: java
 jdk:
-  -openjdk8
-os: windows
+  - openjdk8
 branches:
   only:
     - master

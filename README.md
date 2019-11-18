@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/EduardoCh93/AlgoChess.svg?branch=master)](https://travis-ci.org/EduardoCh93/AlgoChess)
+[![Build Status](https://travis-ci.com/EduardoCh93/AlgoChess.svg?branch=master)](https://travis-ci.com/EduardoCh93/AlgoChess)
 [![codecov](https://codecov.io/gh/EduardoCh93/AlgoChess/branch/master/graph/badge.svg)](https://codecov.io/gh/EduardoCh93/AlgoChess)
 
 ## Instalación previa

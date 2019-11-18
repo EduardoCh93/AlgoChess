@@ -22,6 +22,12 @@ class JineteTest {
     }
 
     @Test
+    void testNombreUnidad(){
+        Jinete jinete = new Jinete();
+        assertEquals(jinete.getNombreDeUnidad(), "Jinete");
+    }
+
+    @Test
     void atacarAUnaUnidadYVerificarDanio(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");

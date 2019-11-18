@@ -23,6 +23,12 @@ class CatapultaTest {
     }
 
     @Test
+    void nombreUnidad(){
+        Catapulta catapulta = new Catapulta();
+        assertEquals(catapulta.getNombreDeUnidad(),"Catapulta");
+    }
+
+    @Test
     void atacarAUnaUnidadYVerificarDanio(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");

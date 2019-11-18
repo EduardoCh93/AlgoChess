@@ -23,7 +23,13 @@ class CuranderoTest {
     }
 
     @Test
-    void curarAUnaUnidadYVerificarSalud(){
+    void testnombreDeLaUnidad(){
+        Curandero curandero = new Curandero();
+        assertEquals(curandero.getNombreDeUnidad(),"Curandero");
+    }
+
+    @Test
+    void testcurarAUnaUnidadYVerificarSalud(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
         Tablero tablero = new Tablero(jugador1,jugador2);

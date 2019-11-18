@@ -21,6 +21,12 @@ class SoldadoTest {
     }
 
     @Test
+    void testNombreUnidad(){
+        Soldado soldado = new Soldado();
+        assertEquals(soldado.getNombreDeUnidad(),"Soldado");
+    }
+
+    @Test
     void atacarAUnaUnidadYVerificarDanio(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");

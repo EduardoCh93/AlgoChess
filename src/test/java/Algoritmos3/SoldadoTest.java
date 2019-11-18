@@ -2,7 +2,6 @@ package Algoritmos3;
 
 import Algoritmos3.Modelo.Unidades.Soldado;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class SoldadoTest {

@@ -43,6 +43,9 @@ public abstract class Unidad {
 
     public void recibirDanio(int danioRecibido) {
         this.puntosDeSalud -= danioRecibido;
+        if (this.puntosDeSalud <= 0) {
+            jugadorDuenio.removerUnidad(this);
+        }
     }
 
     public void sanarDanio(int devolverPuntosDeAtaque) {

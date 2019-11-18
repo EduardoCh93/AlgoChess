@@ -12,22 +12,35 @@ public class Tablero {
     private ArrayList<Casillero> tableroDelJuego;
     private int tamanioHorizontal;
     protected int ladoDelTablero;
+    private Jugador jugadorAliado;
+    private Jugador jugadorEnemigo;
 
-    public Tablero(){
+    public Tablero(Jugador jugador1,Jugador jugador2){
+        this.jugadorAliado = jugador1;
+        this.jugadorEnemigo = jugador2;
         this.tableroDelJuego = new ArrayList<Casillero>();
         this.ladoDelTablero = 20;
         this.inicializarTablero();
     }
 
-    public void inicializarTablero() {
+    private void inicializarTablero() {
         if(this.tableroDelJuego.isEmpty()) {
             for(int i = 1; i <= this.ladoDelTablero; i++){
                 for (int j = 1; j <= this.ladoDelTablero; j++) {
                     Casillero casillero = new Casillero(i,j);
                     casillero.setEsEnemigo(asignarLadoDelCampo(i));
                     this.tableroDelJuego.add(casillero);
+                    this.asignarLadoDelCampoAJugador(casillero,i);
                 }
             }
+        }
+    }
+
+    private void asignarLadoDelCampoAJugador(Casillero casilleroAAsignar, int posicion) {
+        if(posicion<=this.ladoDelTablero/2){
+            this.jugadorAliado.campoDelJugador(casilleroAAsignar);
+        }else{
+            this.jugadorEnemigo.campoDelJugador(casilleroAAsignar);
         }
     }
 
@@ -111,4 +124,12 @@ public class Tablero {
         }
         return cantidadEnemigos;
     }
+
+    public void moverUnidadAPosicion(int xInicial, int yInicial, int xFinal, int yFinal){
+        Casillero casilleroOrigen = this.obtenerCasillero(xInicial,yInicial);
+        Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
+        Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
+        moverUnidadA(unidadAMover,casilleroDestino);
+    }
+
 }

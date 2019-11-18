@@ -1,5 +1,6 @@
 package Algoritmos3.Modelo;
 
+import Algoritmos3.Excepciones.CampoContrarioException;
 import Algoritmos3.Excepciones.JugadorPerdioElJuegoExcepcion;
 import Algoritmos3.Excepciones.PuntosNoDisponibleDelJugadorException;
 import Algoritmos3.Modelo.Tablero.Casillero;
@@ -49,5 +50,13 @@ public class Jugador {
 
     public String getNombreDelJugador(){
         return this.nombreDelJugador;
+    }
+
+    public boolean esMiCampo(Casillero casilleroALlenar) {
+        if(this.casillerosDelJugador.contains(casilleroALlenar)){
+            return true;
+        }else{
+            throw new CampoContrarioException();
+        }
     }
 }

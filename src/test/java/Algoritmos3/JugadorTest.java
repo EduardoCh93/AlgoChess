@@ -56,4 +56,5 @@ class JugadorTest {
         assertEquals(jugadorAliado.tamanioCampo(),200);
         assertEquals(jugadorEnemigo.tamanioCampo(),200);
     }
+
 }

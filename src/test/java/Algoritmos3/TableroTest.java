@@ -6,7 +6,6 @@ import Algoritmos3.Excepciones.ErrorDePosicionException;
 import Algoritmos3.Modelo.*;
 import Algoritmos3.Modelo.Tablero.Tablero;
 import Algoritmos3.Modelo.Unidades.Soldado;
-import javafx.scene.control.Tab;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -51,7 +50,7 @@ class TableroTest {
         nuevoTablero.ingresarUnidadEn(nuevoSoldado,1,2,jugador1);
         Soldado otroSoldado = new Soldado();
         assertThrows(CasilleroOcupadoException.class,()->{
-            nuevoTablero.ingresarUnidadEn(otroSoldado,1,2,jugador2);
+            nuevoTablero.ingresarUnidadEn(otroSoldado,1,2,jugador1);
         });
     }
 
@@ -70,15 +69,15 @@ class TableroTest {
         Tablero tablero = new Tablero(jugador1,jugador2);
         assertEquals(tablero.cantidadDeCasillerosEnemigos(),200);
     }
-/*
+
     @Test
     void comprobarIngresoACampoEnemigo(){
         Jugador jugador1 = new Jugador("Pedro");
         Jugador jugador2 = new Jugador("Juan");
-        Tablero nuevoCampo = new Tablero();
+        Tablero tablero = new Tablero(jugador1,jugador2);
         Soldado nuevoSoldado = new Soldado();
         assertThrows(CampoContrarioException.class,()->{
-            nuevoCampo.ingresarUnidad(nuevoSoldado,5,2);
+            tablero.ingresarUnidadEn(nuevoSoldado,1,1,jugador2);
         });
-    }*/
+    }
 }

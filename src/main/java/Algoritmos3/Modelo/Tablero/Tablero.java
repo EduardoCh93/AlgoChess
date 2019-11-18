@@ -2,6 +2,7 @@ package Algoritmos3.Modelo.Tablero;
 
 import Algoritmos3.Excepciones.CasilleroOcupadoException;
 import Algoritmos3.Excepciones.ErrorDePosicionException;
+import Algoritmos3.Excepciones.MoverCatapultaError;
 import Algoritmos3.Modelo.Jugador;
 import Algoritmos3.Modelo.Unidades.Unidad;
 
@@ -73,10 +74,15 @@ public class Tablero {
     }*/
 
     public void moverUnidadA(Unidad unidad, Casillero destino){
-        if(destino.casilleroLibre()){//&& unidad.getNombreDeUnidad() != "Catapulta"){ // realizar chequeo de catapulta
-            unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
-            unidad.setUbicacion(destino);
-        }else{throw new CasilleroOcupadoException();}
+        if(destino.casilleroLibre()){
+            if(unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
+                unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+                unidad.setUbicacion(destino);
+            }else{
+                throw new MoverCatapultaError();
+            }
+        }else {
+            throw new CasilleroOcupadoException();}
     }
 
     public int tamanioDelTablero(){
@@ -133,6 +139,7 @@ public class Tablero {
         Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
         Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
         moverUnidadA(unidadAMover,casilleroDestino);
+        unidadAMover.activarHabilidad();
     }
 
 }

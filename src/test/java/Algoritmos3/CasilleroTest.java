@@ -20,5 +20,12 @@ class CasilleroTest {
         });
     }
 
+    @Test
+    void cambiarDeEstadoCasillero(){
+        Casillero casillero = new Casillero(1,2);
+        Soldado soldado = new Soldado();
+        casillero.ocuparCasilleroConUnidad(soldado);
+        assertEquals(casillero.casilleroLibre(),false);
+    }
 
 }

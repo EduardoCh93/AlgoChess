@@ -1,5 +1,7 @@
 package Algoritmos3;
 
+import Algoritmos3.Modelo.Jugador;
+import Algoritmos3.Modelo.Tablero.Tablero;
 import Algoritmos3.Modelo.Unidades.Catapulta;
 import Algoritmos3.Modelo.Unidades.Soldado;
 import org.junit.jupiter.api.Test;
@@ -22,10 +24,15 @@ class CatapultaTest {
 
     @Test
     void atacarAUnaUnidadYVerificarDanio(){
-        Catapulta nuevoSoldado = new Catapulta();
-        Soldado soldadoAAtacar = new Soldado();
-        //nuevoSoldado.atacarUnidad(soldadoAAtacar);
-        assertEquals(soldadoAAtacar.getPuntosDeSalud(),100);
+        Jugador jugador1 = new Jugador("Pedro");
+        Jugador jugador2 = new Jugador("Juan");
+        Tablero tablero = new Tablero(jugador1,jugador2);
+        Catapulta catapulta = new Catapulta();
+        Soldado soldado = new Soldado();
+        tablero.ingresarUnidadEn(catapulta,8,6,jugador1);
+        tablero.ingresarUnidadEn(soldado,14,6,jugador2);
+        catapulta.activarHabilidad();
+        assertEquals(soldado.getPuntosDeSalud(),80);
     }
 
 }

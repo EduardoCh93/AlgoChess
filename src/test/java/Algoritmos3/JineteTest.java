@@ -37,6 +37,6 @@ class JineteTest {
         tablero.ingresarUnidadEn(jinete,10,2,jugador1);
         tablero.ingresarUnidadEn(jineteAAtacar,12,3,jugador2);
         jinete.activarHabilidad();
-        assertEquals(jineteAAtacar.getPuntosDeSalud(),100);
+        assertEquals(jineteAAtacar.getPuntosDeSalud(),95);
     }
 }

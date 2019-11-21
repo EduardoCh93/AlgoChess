@@ -29,7 +29,6 @@ public class Tablero {
             for(int i = 1; i <= this.ladoDelTablero; i++){
                 for (int j = 1; j <= this.ladoDelTablero; j++) {
                     Casillero casillero = new Casillero(i,j);
-                    casillero.setEsEnemigo(asignarLadoDelCampo(i));
                     this.tableroDelJuego.add(casillero);
                     this.asignarLadoDelCampoAJugador(casillero,i);
                 }
@@ -63,17 +62,7 @@ public class Tablero {
         }
     }
 
-    /*public  Casillero obtenerCasillero(int posicionX, int posicionY) {
-        Casillero casilleroADevolver;
-        for (int i = 0; i < this.tableroDelJuego.size(); i++) {
-            casilleroADevolver = this.tableroDelJuego.get(i);
-            if ((casilleroADevolver.getX() == posicionX) && (casilleroADevolver.getY() == posicionY)) {
-                return casilleroADevolver;
-            }
-        }throw new ErrorDePosicionException();
-    }*/
-
-    public void moverUnidadA(Unidad unidad, Casillero destino){
+    private void moverUnidadA(Unidad unidad, Casillero destino){
         if(destino.casilleroLibre()){
             if(unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
                 unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
@@ -85,16 +74,11 @@ public class Tablero {
             throw new CasilleroOcupadoException();}
     }
 
-    public int tamanioDelTablero(){
-        return this.tableroDelJuego.size();
-    }
-
-
-    protected boolean verificarPosicionValida(int posicionX, int posicionY){
+    private boolean verificarPosicionValida(int posicionX, int posicionY){
         return (posicionX<= this.ladoDelTablero)&&(posicionY<= this.ladoDelTablero);
     }
 
-    public  Casillero obtenerCasillero(int posicionX, int posicionY) {
+    public Casillero obtenerCasillero(int posicionX, int posicionY) {
         Casillero casilleroADevolver;
         if (verificarPosicionValida(posicionX, posicionY)) {
             for (int i = 0; i < this.tableroDelJuego.size(); i++) {
@@ -115,23 +99,11 @@ public class Tablero {
     }
 
     public int cantidadDeCasillerosAliados() {
-        int cantidadAliados = 0;
-        for(int i=0;i<this.tableroDelJuego.size()/2;i++){
-            if(this.tableroDelJuego.get(i).esCasilleroAliado()){
-                cantidadAliados++;
-            }
-        }
-        return cantidadAliados;
+        return this.jugadorAliado.tamanioCampo();
     }
 
     public int cantidadDeCasillerosEnemigos(){
-        int cantidadEnemigos = 0;
-        for(int i=this.tableroDelJuego.size()/2;i<this.tableroDelJuego.size();i++){
-            if(!(this.tableroDelJuego.get(i).esCasilleroAliado())){
-                cantidadEnemigos++;
-            }
-        }
-        return cantidadEnemigos;
+        return this.jugadorEnemigo.tamanioCampo();
     }
 
     public void moverUnidadAPosicion(int xInicial, int yInicial, int xFinal, int yFinal){

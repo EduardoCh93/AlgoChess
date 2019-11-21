@@ -9,7 +9,6 @@ public class Casillero {
     private int posicionY;
     private boolean estaLibre;
     private Unidad unidadAGuardar;
-    private boolean esEnemigo;
 
     public Casillero(int horizontal, int vertical){
         this.posicionX = horizontal;
@@ -25,10 +24,6 @@ public class Casillero {
         }else{
             throw new CasilleroOcupadoException();
         }
-    }
-
-    public void setEsEnemigo(boolean bandoEnemigo){
-        this.esEnemigo = bandoEnemigo;
     }
 
     public boolean casilleroLibre() {
@@ -52,7 +47,4 @@ public class Casillero {
         this.unidadAGuardar = null;
     }
 
-    public boolean esCasilleroAliado() {
-        return this.esEnemigo;
-    }
 }

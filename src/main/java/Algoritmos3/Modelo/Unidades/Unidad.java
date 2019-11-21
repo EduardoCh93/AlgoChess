@@ -49,7 +49,9 @@ public abstract class Unidad {
     }
 
     public void sanarDanio(int devolverPuntosDeAtaque) {
-        this.puntosDeSalud += devolverPuntosDeAtaque;
+        if(this.nombreDeUnidad!="Catapulta"){
+            this.puntosDeSalud += devolverPuntosDeAtaque;
+        }
     }
 
     public String getNombreDeUnidad(){

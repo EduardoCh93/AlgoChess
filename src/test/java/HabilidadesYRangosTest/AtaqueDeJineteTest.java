@@ -23,14 +23,11 @@ class AtaqueDeJineteTest {
         Jinete jinete2 = new Jinete();
         tablero.ingresarUnidadEn(jinete2,11,6,jugador2);
 
-
         Soldado soldado1 = new Soldado();
         tablero.ingresarUnidadEn(soldado1,12,3,jugador2);
 
-
         Soldado soldado2 = new Soldado();
         tablero.ingresarUnidadEn(soldado2,11,3,jugador2);
-
 
         Curandero curandero = new Curandero();
         tablero.ingresarUnidadEn(curandero,13,4,jugador2);

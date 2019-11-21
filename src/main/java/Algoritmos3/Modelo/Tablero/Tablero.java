@@ -3,8 +3,11 @@ package Algoritmos3.Modelo.Tablero;
 import Algoritmos3.Excepciones.CasilleroOcupadoException;
 import Algoritmos3.Excepciones.ErrorDePosicionException;
 import Algoritmos3.Excepciones.MoverCatapultaError;
+import Algoritmos3.Modelo.HabilidadesYRango.RangoContiguo;
 import Algoritmos3.Modelo.Jugador;
+import Algoritmos3.Modelo.Unidades.Batallon;
 import Algoritmos3.Modelo.Unidades.Unidad;
+import org.omg.CORBA.UNKNOWN;
 
 import java.util.ArrayList;
 
@@ -62,11 +65,35 @@ public class Tablero {
         }
     }
 
-    private void intercambiarPosiconDeUnidad(Unidad unidad, Casillero destino){
+    private ArrayList<Unidad> buscarPosiblesMiembrosDeBatallon(Unidad unidad){
+        RangoContiguo rango= new RangoContiguo(this);
+        ArrayList<Unidad> miembrosBatallon = rango.listaDeUnidadesAfectados(unidad.getUbicacion().getX(), unidad.getUbicacion().getY());
+        //Elimino si no es soldado y es el mismo soldado seleccionado
+        miembrosBatallon.removeIf(n -> n.getClass() != unidad.getClass()|| n==unidad || n.getJugador() != unidad.getJugador());
+        miembrosBatallon.add(unidad); //Me queda una lista con el soldado seleccionado y 2 contiguos
+        return miembrosBatallon;
+    }
+
+    public void intercambiarPosicionDeUnidadSoldado(Unidad unidad, Casillero destino) {
+        unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+        unidad.setUbicacion(destino);
+    }
+
+    public void intercambiarPosicionDeUnidad(Unidad unidad, Casillero destino){
         if(destino.casilleroLibre()){
             if(unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
-                unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
-                unidad.setUbicacion(destino);
+                if(unidad.getNombreDeUnidad()!="Soldado") {
+                    unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
+                    unidad.setUbicacion(destino);
+                }else{
+                    ArrayList<Unidad> miembrosBatallon = buscarPosiblesMiembrosDeBatallon(unidad);
+                    if(miembrosBatallon.size()>=3){
+                        Batallon batallon = new Batallon(unidad,miembrosBatallon);
+                        batallon.moverBatallon(destino);
+                    }else {
+                        this.intercambiarPosicionDeUnidadSoldado(unidad,destino);
+                    }
+                }
             }else{
                 throw new MoverCatapultaError();
             }
@@ -110,7 +137,7 @@ public class Tablero {
         Casillero casilleroOrigen = this.obtenerCasillero(xInicial,yInicial);
         Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
         Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
-        intercambiarPosiconDeUnidad(unidadAMover,casilleroDestino);
+        intercambiarPosicionDeUnidad(unidadAMover,casilleroDestino);
         unidadAMover.activarHabilidad();
     }
 

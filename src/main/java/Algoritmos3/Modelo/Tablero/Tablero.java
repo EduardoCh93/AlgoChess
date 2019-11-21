@@ -62,7 +62,7 @@ public class Tablero {
         }
     }
 
-    private void moverUnidadA(Unidad unidad, Casillero destino){
+    private void intercambiarPosiconDeUnidad(Unidad unidad, Casillero destino){
         if(destino.casilleroLibre()){
             if(unidad.getNombreDeUnidad() != "Catapulta") { // realizar chequeo de catapulta
                 unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
@@ -110,7 +110,7 @@ public class Tablero {
         Casillero casilleroOrigen = this.obtenerCasillero(xInicial,yInicial);
         Unidad unidadAMover = casilleroOrigen.obtenerUnidad();
         Casillero casilleroDestino = this.obtenerCasillero(xFinal,yFinal);
-        moverUnidadA(unidadAMover,casilleroDestino);
+        intercambiarPosiconDeUnidad(unidadAMover,casilleroDestino);
         unidadAMover.activarHabilidad();
     }
 

@@ -17,7 +17,6 @@ public class AtaqueDeSoldado extends Habilidad {
     public void activarHabilidad(Unidad unidad){
         this.unidadAtacante = unidad;
         ArrayList<Unidad> unidadesAfectadas = rangoDelAtaque(unidad.getUbicacion().getX(),unidad.getUbicacion().getY());
-
         for (int i = 0; i < unidadesAfectadas.size();i++){
             unidadesAfectadas.get(i).recibirDanio(this.danioCuerpoACuerpo);
         }
@@ -29,7 +28,6 @@ public class AtaqueDeSoldado extends Habilidad {
             listaDeUnidadesAfectadas(x,y,i,unidadesAfectadas);
         }
         filtrarUnidades(this.unidadAtacante,unidadesAfectadas,true);
-
         return unidadesAfectadas;
     }
 

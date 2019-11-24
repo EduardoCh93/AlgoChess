@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class Tablero {
 
     private ArrayList<Casillero> tableroDelJuego;
-    private int tamanioHorizontal;
     protected int ladoDelTablero;
     private Jugador jugadorAliado;
     private Jugador jugadorEnemigo;
@@ -85,13 +84,8 @@ public class Tablero {
                     unidad.getUbicacion().cambiarEstadoDelCasilleroALibre();
                     unidad.setUbicacion(destino);
                 }else{
-                    ArrayList<Unidad> miembrosBatallon = buscarPosiblesMiembrosDeBatallon(unidad);
-                    if(miembrosBatallon.size()>=3){
-                        Batallon batallon = new Batallon(unidad,miembrosBatallon);
+                        Batallon batallon = new Batallon(unidad);
                         batallon.moverBatallon(destino);
-                    }else {
-                        this.intercambiarPosicionDeUnidadSoldado(unidad,destino);
-                    }
                 }
             }else{
                 throw new MoverCatapultaError();

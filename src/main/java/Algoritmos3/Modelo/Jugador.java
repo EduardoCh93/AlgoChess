@@ -37,7 +37,7 @@ public class Jugador {
                 this.unidadesDesplegadas.remove(i);
             }
         }
-        if (unidadesDesplegadas.size() == 0) throw  new JugadorPerdioElJuegoExcepcion();
+        if (this.tieneUnidades()) throw  new JugadorPerdioElJuegoExcepcion();
     }
 
     public void campoDelJugador(Casillero casillero){
@@ -46,6 +46,10 @@ public class Jugador {
 
     public int tamanioCampo(){
         return this.casillerosDelJugador.size();
+    }
+
+    public boolean tieneUnidades(){ //A partir de este metodo, defino quien es el jugador ganador
+        return (unidadesDesplegadas.size() == 0 );
     }
 
     public String getNombreDelJugador(){

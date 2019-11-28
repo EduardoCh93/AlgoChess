@@ -1,5 +1,6 @@
 package Algoritmos3.Aplicacion;
 
+import Algoritmos3.Aplicacion.Vista.InitialPhaseView;
 import Algoritmos3.Aplicacion.flujodejuego.AlgoChess;
 import Algoritmos3.Aplicacion.flujodejuego.TableroVista;
 import Algoritmos3.Eventos.*;
@@ -150,17 +151,11 @@ public class Aplicacion extends Application {
     public void iniciarJuego(String nombre1,String nombre2) {
         this.algoChess = new AlgoChess(nombre1,nombre2);
         this.stage.setTitle("AlgoChess");
-        this.refresh();
+        this.refresh(nombre1,nombre2);
     }
 
-    public void refresh() {
-        Scene escena;
-        escena = this.tableroVista.juego();
-        escena.getStylesheets().add("Css/pantallaTablero.css");
-        this.stage.setScene(escena);
-        this.stage.setMaximized(true);
-        this.stage.show();
-        this.stage.setFullScreen(true);
+    public void refresh(String nombre1,String nombre2) {
+        InitialPhaseView initialPhase = new InitialPhaseView(nombre1,nombre2,this.stage);//jugador1 y jugador2
     }
 
 }

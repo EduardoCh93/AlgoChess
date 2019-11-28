@@ -11,7 +11,9 @@ import javafx.scene.layout.*;
 import javafx.stage.*;
 
 public class SalirDelProgramaEventHandler implements EventHandler<ActionEvent> {
+
     Stage escenaPrincipal;
+
     public SalirDelProgramaEventHandler(Stage stage) {
        escenaPrincipal= stage;
     }
